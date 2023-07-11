@@ -10,6 +10,10 @@
 //? na ruta "/blogs" da se povikuva i da se kreira blog
 //? i da ima najmalce 10 bloga
 
+//? prodolzenie na dosegasnata domasna
+//? da se kreira celosen crud sistem
+//? za blog
+
 // Go povikuvame express modulot
 const express = require("express");
 // Kreirame nova express aplikacija
@@ -53,6 +57,12 @@ mongoose
 app.get("/blogs", blogController.getAllBlogs);
     // Ruta za kreiranje na blog zapis
 app.post("/blogs", blogController.createBlog);
+  // Ruta za dobivanje (prikazuvanje) na blog so nekoe id
+app.get("/blogs/:id", blogController.getBlog);
+  // Ruta so koja pravime promena na nekoe id sto veke go imame
+app.patch("/blogs/:id", blogController.updateBlog);
+  // Ruta za brisenje na blog so odredeno id
+  app.delete("/blogs/:id", blogController.deleteBlog);
    
   // Startuvanje i slusanje na web serverot
 app.listen(10000, () => {

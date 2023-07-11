@@ -4,23 +4,23 @@ const mongoose = require("mongoose");
 const blogSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true
+    required: [true, "You muss enter a title"],
   },
   description: {
     type: String,
-    required: true
+    required: [true]
   },
   rating: {
     type: Number,
-    required: true
+    default: 4,
   },
   duration: {
     type: Date,
     default: Date.now,
-  },
+},
   author: {
     type: String,
-    required: true
+    required: [true, "You must enter the author"]
   }
 });
 
