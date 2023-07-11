@@ -35,6 +35,27 @@ const getAllBlogs = async (req, res) => {
     }
 };
 
+// Prikazuvanje na blog so nekoj title
+const getBlogWithTitle = async (req, res) => {
+  try{
+      console.log(req.params);
+      const blog = await Blog.findOne({ title: req.params.title });
+
+      res.status(200).json({
+          status: "Success",
+          data: {
+              blog,
+          },
+      });
+  }
+  catch(err) {
+      res.status(404).json ({
+          status: "fail",
+          message: err,
+      });
+  }
+};
+
 // Prikazuvanje na blog so nekoe id
 const getBlog = async (req, res) => {
     try{
@@ -98,6 +119,7 @@ const getBlog = async (req, res) => {
 module.exports = {
     createBlog,
     getAllBlogs,
+    getBlogWithTitle,
     getBlog,
     updateBlog, 
     deleteBlog
