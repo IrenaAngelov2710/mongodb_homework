@@ -39,10 +39,10 @@ const getAllBlogs = async (req, res) => {
 // const getAllBlogs = async (req, res) => {
 //   try {
 //     console.log(req.query);
-//     // pravime kopija od objektot ne sakame da go modificirame originalnogo query
+//     // pravime kopija od objektot ne sakame da go modificirame originalnoto query
 //     const queryObj = { ...req.query };
 //     // ovoj objekt go konvertirame vo string
-//     letqueryString = JSON.stringify(queryObj);
+//     let queryString = JSON.stringify(queryObj);
 //     // go modificirame stringot
 //     queryString = queryString.replace(
 //       /\b(gte|gt|lte|lt)\b/g,
