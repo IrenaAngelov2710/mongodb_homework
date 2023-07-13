@@ -58,9 +58,9 @@ app.get("/blogs", blogController.getAllBlogs);
     // Ruta za kreiranje na blog zapis
 app.post("/blogs", blogController.createBlog);
   // Ruta ZA dobivanje (prikazuvanje) na blog so nekoj title
-app.get("/blogs/:title", blogController.getBlog);
+app.get("/blogs/:title", blogController.getOneBlog);
   // Ruta za dobivanje (prikazuvanje) na blog so nekoe id
-app.get("/blogs/:id", blogController.getBlog);
+app.get("/blogs/:id", blogController.getOneBlog);
   // Ruta so koja pravime promena na nekoe id sto veke go imame
 app.patch("/blogs/:id", blogController.updateBlog);
   // Ruta za brisenje na blog so odredeno id

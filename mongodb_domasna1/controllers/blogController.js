@@ -15,7 +15,7 @@ const createBlog = async (req, res) => {
     }
 };
 
-// Prikazuvanje na site blogs
+// Prikazuvanje na site dokumenti vo kolekcijata
 const getAllBlogs = async (req, res) => {
     try{
         const blogs = await Blog.find();
@@ -35,7 +35,7 @@ const getAllBlogs = async (req, res) => {
     }
 };
 
-// 127.0.0.1:10000/blogs?title=Roshini Kumar’s blog
+
 // const getAllBlogs = async (req, res) => {
 //   try {
 //     console.log(req.query);
@@ -68,49 +68,49 @@ const getAllBlogs = async (req, res) => {
 //   }
 // };
 
-// Prikazuvanje na blog so nekoj title
-// const getBlog = async (req, res) => {
-//   try{
-//       console.log(req.params);
-//       const blog = await Blog.findOne({ title: req.params.title });
+// Prikazuvanje na nekoj dokument vo kolekcijata po title
+const getOneBlog = async (req, res) => {
+  try{
+      console.log(req.params);
+      const blog = await Blog.findOne({ title: req.params.title });
 
-//       res.status(200).json({
-//           status: "Success",
-//           data: {
-//               blog,
-//           },
-//       });
-//   }
-//   catch(err) {
-//       res.status(404).json ({
-//           status: "fail",
-//           message: err,
-//       });
-//   }
-// };
-
-// Prikazuvanje na blog so nekoe id
-const getBlog = async (req, res) => {
-    try{
-        console.log(req.params);
-        const blog = await Blog.findById(req.params.id);
-
-        res.status(200).json({
-            status: "Success",
-            data: {
-                blog,
-            },
-        });
-    }
-    catch(err) {
-        res.status(404).json ({
-            status: "fail",
-            message: err,
-        });
-    }
+      res.status(200).json({
+          status: "Success",
+          data: {
+              blog,
+          },
+      });
+  }
+  catch(err) {
+      res.status(404).json ({
+          status: "fail",
+          message: err,
+      });
+  }
 };
 
-// Promena nekoja vo id sto veke go imame
+// Prikazuvanje na nekoj dokument vo kolekcijata po ID
+// const getOneBlog = async (req, res) => {
+//     try{
+//         console.log(req.params);
+//         const blog = await Blog.findById(req.params.id);
+
+//         res.status(200).json({
+//             status: "Success",
+//             data: {
+//                 blog,
+//             },
+//         });
+//     }
+//     catch(err) {
+//         res.status(404).json ({
+//             status: "fail",
+//             message: err,
+//         });
+//     }
+// };
+
+// Promena na nekoj dokument vo kolekcijata po ID
  const updateBlog = async (req, res) => {
     try {
       const updatedBlog = await Blog.findByIdAndUpdate(req.params.id, req.body, {
@@ -132,7 +132,7 @@ const getBlog = async (req, res) => {
     }
   };
 
-  // Brisenje na nekoj blog so odredeno id
+  // Brisenje na nekoj dokument vo kolekcijata po ID
   const deleteBlog = async (req, res) => {
     try {
       await Blog.findByIdAndDelete(req.params.id);
@@ -152,8 +152,8 @@ const getBlog = async (req, res) => {
 module.exports = {
     createBlog,
     getAllBlogs,
-    getBlog,
-    getBlog,
+    getOneBlog,
+    getOneBlog,
     updateBlog, 
     deleteBlog
 };
